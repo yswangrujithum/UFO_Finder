@@ -19,7 +19,9 @@ Assigning the data table as ```originalTable```
 loop through each data dictionary and append them onto the webpage. 
 
 ```columns.forEach(column => row.append("td").text(sight[column])```
+
 ![original](Images/OriginalTable.jpeg)
+
 ### Assign variables
 These variables will look for the particular tags or ids in the html page and "anchor" onto them. 
 d3.select allows us to transform the document object model (DOM) 
@@ -39,7 +41,9 @@ d3.select allows us to transform the document object model (DOM)
 use if...else statement to loop through every single data row. 
 
 ```if (webData.filterData.length !== 0){originalTable(filterData)};``` 
+
 ![filter](Images/filterTable.jpeg)
+
 * Display the error message if the data is not found. 
 
 ```tbody.append('tr').append('td').text("Your input doesn't locate in the data");```
