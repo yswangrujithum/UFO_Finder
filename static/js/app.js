@@ -1,52 +1,46 @@
 // from data.js
 var tableData = data;
-var submit = d3.select('#filter-btn');
+
+// Assign variable
+var tbody = d3.select("tbody");
+var dateInfo = d3.select('#datetime');
+var cityInfo = d3.select('#city');
+var button = d3.select("#filter-btn");
+var columns = ["datetime", "city", "state", "country", "shape", "durationMinutes", "comments"];
+
+
+
+
 // Insert data to the HTML
-function originalTable(){
-    var tbody = d3.select("tbody");
-    data.forEach(function(tableData) {
-        // console.log(tableData);
+var originalTable = (dataInput) => {
+    dataInput.forEach(sight => {
         var row = tbody.append('tr');
-        Object.entries(tableData).forEach(function([key,value]){
-            var cell = tbody.append("td");
-            cell.text(value);
-        });
-    }); 
-};
+        columns.forEach(column => row.append("td").text(sight[column])
+        )    
+    });
+}
+
+originalTable(data);
+  
 
 // Take the input from user and search through the data. 
 
-// var submit = d3.select('#filter-btn');
 
-submit.on('click',function() {
-    
+button.on("click", () => {
     d3.event.preventDefault();
-    var inputText = d3.select('#datetime');
-    var inputValue = inputText.property("value");
-    var filterData = tableData.filter(dateData => dateData.datetime === inputValue);
-    var tbody = d3.select('tbody');
-    filterData.forEach(function(filterData) {
+    var inputDate = dateInfo.property('value').trim();
+    var filterDate = tableData.filter(tableData => tableData.datetime === inputDate);
+    console.log(filterDate);
+    
+    tbody.html("");
+    let webData = {filterDate};
+    if (webData.filterDate.length !== 0){
+        originalTable(filterDate);
+    }
+    else {
+        tbody.append('tr').append('td').text("Your input doesn't locate in the data");
+    }
 
-        console.log(filterData);
-        var row = tbody.append("tr");
-        Object.entries(filterData).forEach(function([key,value]){
-            console.log(key,value);
-            // tbody.clear();
-            var cell = tbody.append("td");
-            cell.text(value);
-        });
-    });
-});
-originalTable();
-
-
-
-
-
-
-
-
-
-
+})
 
 
