@@ -1,5 +1,5 @@
 # UFO Finder
-![UFO](Images/UFO.jpeg)
+![UFO](Images/UFO.png)
 
 This project is focusing on filtering data table from user's input. The data is available in the form of the dictionary. Our assignment is to load the data onto the webpage as well as create the filtering function in response to the users' requests. 
 ## Getting Started
@@ -20,7 +20,7 @@ loop through each data dictionary and append them onto the webpage.
 
 ```columns.forEach(column => row.append("td").text(sight[column])```
 
-![original](Images/OriginalTable.jpeg)
+![original](Images/OriginalTable.png)
 
 ### Assign variables
 These variables will look for the particular tags or ids in the html page and "anchor" onto them. 
@@ -42,7 +42,7 @@ use if...else statement to loop through every single data row.
 
 ```if (webData.filterData.length !== 0){originalTable(filterData)};``` 
 
-![filter](Images/filterTable.jpeg)
+![filter](Images/filterTable.png)
 
 * Display the error message if the data is not found. 
 
